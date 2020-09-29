@@ -108,6 +108,12 @@ export function kvsTestBuckets(provider: StoreProvider) {
           expected.push(k);
         }
 
+        const bucket2 = await store.bucket(random.string(8));
+        for (let i = 0; i < 10; i++) {
+          const k = random.string();
+          await bucket2.set(k, genValue());
+        }
+
         const keys = await bucket.keys();
         expect(expected).containDeep(keys);
       });
