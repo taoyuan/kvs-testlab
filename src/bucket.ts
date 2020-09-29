@@ -6,13 +6,13 @@ import {random} from './support';
 export function kvsTestBuckets(provider: StoreProvider) {
   const types: any = {
     string: {
-      genValue: function() {
+      genValue: function () {
         return random.string();
       },
       options: {},
     },
     hash: {
-      genValue: function() {
+      genValue: function () {
         return {name: random.string()};
       },
       options: {type: 'hash'},
@@ -28,7 +28,7 @@ export function kvsTestBuckets(provider: StoreProvider) {
     genValue: () => string,
     options: Record<string, any>,
   ) {
-    context('bucket ' + name, function() {
+    context('bucket ' + name, function () {
       let store: Store;
       let bucket: Bucket;
       let key: string;
@@ -46,7 +46,7 @@ export function kvsTestBuckets(provider: StoreProvider) {
         await store.close();
       });
 
-      describe('get() and set()', function() {
+      describe('get() and set()', function () {
         it('should set and get data in bucket', async () => {
           await bucket.set(key, value);
           const result = await bucket.get(key);
@@ -54,7 +54,7 @@ export function kvsTestBuckets(provider: StoreProvider) {
         });
       });
 
-      describe('del()', function() {
+      describe('del()', function () {
         beforeEach(() => bucket.set(key, value));
 
         it('should delete data from bucket', async () => {
