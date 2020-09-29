@@ -46,6 +46,14 @@ export function kvsTestBuckets(provider: StoreProvider) {
         await store.close();
       });
 
+      describe('has()', function () {
+        it('should has worked', async function () {
+          expect(await bucket.has(key)).equal(0);
+          await bucket.set(key, value);
+          expect(await bucket.has(key)).equal(1);
+        });
+      });
+
       describe('get() and set()', function () {
         it('should set and get data in bucket', async () => {
           await bucket.set(key, value);
