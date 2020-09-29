@@ -1,6 +1,6 @@
 import {Store} from 'kvs';
 
-export type StoreProvider = () => Promise<Store>;
+export type StoreProvider = () => Store;
 
 export interface Suite {
   test(provider: StoreProvider): void;

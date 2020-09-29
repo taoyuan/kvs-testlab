@@ -35,7 +35,7 @@ export function kvsTestBuckets(provider: StoreProvider) {
       let value: any;
 
       beforeEach(async () => {
-        store = await provider();
+        store = provider();
         bucket = await store.createBucket(random.string(), options);
         key = random.string(20);
         value = genValue();
